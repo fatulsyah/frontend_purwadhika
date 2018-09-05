@@ -1,4 +1,4 @@
-// console.log("Hello World!");
+// console.log("Hello World! checkout test");
 
 // document.getElementsByTagName('button')[0].addEventListener('click', function() {
 //     document.getElementById('text').innerHTML = "<span>"+ (5+6) +"</span>";
