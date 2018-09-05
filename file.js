@@ -63,3 +63,6 @@ console.log('123');
 console.log('newchanges');
 
 const a = () => 1+2;
+
+
+console.log("check clone test xyzddfdfd");
