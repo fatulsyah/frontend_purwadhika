@@ -1,0 +1,237 @@
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+    <body>
+        <form id="form">
+            <span>Nama</span> <input id="name" type="text" name="name" /><br/>
+            <span>Age</span> <input id="age" type="number" name="age" /><br/>
+            <span>Jenis Kelamin</span> 
+            <input type="radio" name="gender" value="Pria"/> Pria
+            <input type="radio" name="gender" value="Wanita"/> Wanita
+        </form>
+        <button onclick="submit()">Submit</button>
+
+        <p>Nama: <span id="name_output">-</span></p>
+        <p>Age: <span id="age_output">-</span> Tahun</p>
+        <p>Jenis Kelamin: <span id="gender_output">-</span></p>
+
+        <input id="a1" type="checkbox" onclick="fungsiKu1(this.value)" value="Pria"> Pria
+        <input id="a2" type="checkbox"
+            onclick="fungsiKu1(this.value)" value="Wanita"> Wanita
+        <br><br>
+        <button id="klikini" onclick="fungsiKu2(this.value)"> klik
+        </button>
+        <p id="output"></p>
+
+        <!-- Kuadrat -->
+        <form id="kuadrat_form">
+            <p>Masukkan Angka:</p>
+            <input id="angka" type="number" />
+            <p>Masukkan Pangkat:</p>
+            <input id="angka_pangkat" type="number" />
+        </form>
+        <button onclick="pangkat()">Pangkatkan!</button>
+        <p>Hasil 
+            <span id="numberValue">-</span><sup id="pangkat">0</sup> = 
+            <span id="hasil">0</span>
+        </p>
+
+        <!-- Search Character -->
+        <form id="search_form">
+            <p>Ketik Kalimat:</p>
+            <input id="kalimat" type="text" />
+            <p>Karakter Yang Dicari:</p>
+            <input id="karakter" type="text" />
+        </form>
+        <button onclick="search_character()">Cari!</button>
+        <p>Hasil 
+            Jumlah '<span id="karakter_value">-</span>' sebanyak 
+            <span id="hasil_search">0</span> buah
+        </p>
+
+        <!-- Kalkulator -->
+        <form id="kalkulator_form">
+            <div>
+                <span>Masukkan Angka 1:</span>
+                <input id="angka_1" type="number" />
+            </div>
+            <div>
+                <span>Masukkan Angka 2:</span>
+                <input id="angka_2" type="number" />
+            </div>
+        </form>
+        <button onclick="tambah()">Tambah +</button>
+        <button onclick="kali()">Kali *</button>
+        <button onclick="bagi()">Bagi /</button>
+        <button onclick="kurang()">Kurang -</button>
+
+        <p id="kalkulator_output"></p>
+
+        Buat satu function operator matematika, return Kalimat + hasil dari operasi;
+
+        Jumlah dari a + b = hasil;
+
+        ES6 => var, function, return, concat
+        function() {}
+        () => {}
+
+        var tambah = function(x, y) {
+            var hasil = x + y;
+            return 'Jumlah dari ' + x + ' + ' + y + '= ' + hasil;
+        }
+
+        const kali = (x, y) => x * y;
+        const hitung = (x, y, op) => {
+            return op(x, y);
+        });
+        hitung(1, 2, (x, y) => x * y);
+
+
+        const array = [1,2,3,4,5];
+        Kita buat function filter dengan kondisi `value` dari array !== 2
+        const filtered = 3;
+        const hasil = [];
+        hasil.push(filtered);
+
+        hasil => [1,3,...]
+
+        const filter = (array) => {
+            let hasil = [], filtered;
+            for (let i = 0; i < array.length; i++) {
+                filtered = array[i];
+                if (filtered !== 2) {
+                    hasil.push(filtered);
+                }
+            }
+            return hasil;
+        }
+
+        const array = [1,2,3,4,5];
+        const isNotEqualTwo = (val) => {
+            return val !== 2;
+        }
+        const isEqualTwo = (val) => {
+            return val === 2;
+        }
+        const filter = (array, filterTrue) => {
+            let hasil = [], filtered;
+            for (let i = 0; i < array.length; i++) {
+                filtered = array[i];
+                if (filterTrue(array) === true) {
+                    hasil.push(filtered);
+                }
+            }
+            return hasil;
+        }
+
+        filter(array, isNotEqualTwo);
+        filter(array, isEqualTwo);
+
+        <!-- Script Javascript -->
+        <script>
+            // Kalkulator
+            function print(value) {
+                document.getElementById('kalkulator_output').innerHTML = value;
+            }
+            function getValues() {
+                const values = {
+                    angka_1: document.getElementById('angka_1').value,
+                    angka_2: document.getElementById('angka_2').value,
+                };
+                return values;
+            }
+            function tambah() {
+                const values = getValues();
+                const hasil = parseInt(values.angka_1) + parseInt(values.angka_2);
+                print(hasil)
+            }
+            function kali() {
+                const values = getValues();
+                const hasil = values.angka_1 * values.angka_2;
+                print(hasil)
+            }
+            function bagi() {
+                const values = getValues();
+                const hasil = values.angka_1 / values.angka_2;
+                print(hasil)
+            }
+            function kurang() {
+                const values = getValues();
+                const hasil = values.angka_1 - values.angka_2;
+                print(hasil)
+            }
+
+            // Search Character
+            function search_character() {
+                const kalimat = document.getElementById('kalimat').value;
+                const karakter = document.getElementById('karakter').value;                
+                const character_filter = new RegExp(karakter, 'g');
+                const hasil = kalimat.match(character_filter).length;                
+                
+                // set #karakter_value
+                document.getElementById('karakter_value').innerHTML = karakter;
+                
+                // set #hasil
+                document.getElementById('hasil_search').innerHTML = hasil;
+            }
+
+            // Kuadrat
+            function kuadrat() {
+               const number = document.getElementById('numberKuadrat').value;
+                
+                // set #numberValue
+                document.getElementById('numberValue').innerHTML = number;
+                // document.getElementById('hasil').innerHTML = number**2;
+                document.getElementById('hasil').innerHTML = Math.pow(number, 2);
+            }
+
+            function pangkat() {
+                // simpanb value dalam variable
+                const angka = document.getElementById('angka').value;
+                const angka_pangkat = document.getElementById('angka_pangkat').value;
+
+                // set #numberValue & #pangkat
+                document.getElementById('numberValue').innerHTML = angka;
+                document.getElementById('pangkat').innerHTML = angka_pangkat;
+
+                // set hasil pangkat
+                document.getElementById('hasil').innerHTML = Math.pow(angka, angka_pangkat);
+            }
+
+            function submit() {
+                const nama = document.getElementById("name").value;
+                const age = document.getElementById("age").value;
+                const gender = document.querySelector('input[name="gender"]:checked').value;
+
+                document.getElementById("name_output").innerHTML = nama;
+                document.getElementById("age_output").innerHTML = age;
+                document.getElementById("gender_output").innerHTML = gender;
+            }
+
+            function fungsiKu(y) { 
+                if(document.getElementById("a1").checked==true){ 
+                    document.getElementById("output").innerHTML = y
+                } else {
+                    document.getElementById("output").innerHTML = ''
+                }
+            }
+
+            function fungsiKu1(x) {
+                if(document.getElementById("a1").checked==true &&
+                    document.getElementById("a2").checked==false){
+                    document.getElementById("klikini").value = 'Pria'}
+                else if(document.getElementById("a1").checked==false &&
+                    document.getElementById("a2").checked==true){
+                    document.getElementById("klikini").value = 'Wanita'}
+                else if(document.getElementById("a1").checked==true &&
+                    document.getElementById("a2").checked==true){
+                    document.getElementById("klikini").value = 'Pria & Wanita'}
+                else{
+                    document.getElementById("klikini").value = ''
+                }
+            }
+            function fungsiKu2(y) { document.getElementById("output").innerHTML = y }
+        </script>
+    </body>
+</html>
