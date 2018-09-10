@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+
+@font-face {
+  font-family: NeoSansPro;
+  src: url("./NeoSansPro.otf");
+}
+
+body {
+  font-family: NeoSansPro, Montserrat, sans-serif;
+}
