@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>Column - Sidebar HTML</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .col {
+            float: left;
+        }
+
+        .col::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .content {
+            width: 80%;
+        }
+
+        .content .wrapper {
+            padding: 20px;
+        }
+
+        .content .column {
+            width: 33.33%;
+            padding: 15px;
+            margin: 0 -15px;
+        }
+
+        .sidebar {
+            width: 20%;
+            height: 100%;
+            background: grey;
+        }
+
+        .sidebar>ul {
+            list-style: none;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .sidebar>ul a {
+            color: #000000;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .sidebar>ul li:hover {
+            background: #000000;
+            cursor: pointer;
+        }
+
+        .sidebar>ul li:hover>a {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="col sidebar">
+        <ul>
+            <li>
+                <a href="#">Logo</a>
+            </li>
+            <li>
+                <a href="#">Link 1</a>
+            </li>
+            <li>
+                <a href="#">Link 2</a>
+            </li>
+            <li>
+                <a href="#">Link 3</a>
+            </li>
+        </ul>
+    </section>
+    <section class="col content">
+        <div class="wrapper">
+            <h1>Sidebar Navigation Layout</h1>
+
+            <div class="col column">
+                <h3>Kolom 1</h3>
+                <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala macam
+                    informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat mp3. Karena
+                    algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti ini tidak bisa
+                    menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+            </div>
+            <div class="col column">
+                <h3>Kolom 2</h3>
+                <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala macam
+                    informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat mp3. Karena
+                    algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti ini tidak bisa
+                    menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+            </div>
+            <div class="col column">
+                <h3>Kolom 3</h3>
+                <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala macam
+                    informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat mp3. Karena
+                    algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti ini tidak bisa
+                    menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
