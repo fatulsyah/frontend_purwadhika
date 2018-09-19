@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Column - Sidebar HTML</title>
-    <link rel="stylesheet" href="./grid-12.css">
+    <title>GRID - Sidebar HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html,
         body {
@@ -16,6 +16,15 @@
 
         .content .wrapper {
             padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100px auto;
+            grid-column-gap: 35px;
+            grid-template-areas: "title title title";
+        }
+
+        .content .wrapper>h1 {
+            grid-area: title;
         }
 
         .sidebar {
@@ -49,31 +58,8 @@
 
         #content {
             height: 100%;
-        }
-
-        .column-grid {
-            background: blue;
-            height: 20px;
-        }
-
-        header {
-            background: #d2d2d2;
-            color: #fff;
-            padding: 20px 0;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        footer {
-            background: #000000;
-            color: #ffffff;
-            padding: 100px 50px;
-        }
-
-        footer p {
-            padding: 15px;
-            margin: 0;
+            display: grid;
+            grid-template-columns: 20% 80%;
         }
 
         ul.list {
@@ -89,56 +75,23 @@
         ul.list>li:hover {
             background: #613131;
         }
+
+        @media screen and (max-width: 500px) {
+            #content {
+                grid-template-columns: 1fr;
+            }
+            .content .wrapper {
+                grid-template-columns: 1fr;
+                grid-template-areas: unset;
+            }
+            .content .wrapper>h1 {
+                grid-area: unset;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header class="row">
-        <ul class="list">
-            <li class="col-2">Home</li>
-            <li class="col-2">Berita</li>
-            <li class="col-2">Sport</li>
-            <li class="col-2">Games</li>
-        </ul>
-    </header>
-    <!-- <section class="row">
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-        <div class="col-1">
-            <div class="column-grid"></div>
-        </div>
-    </section> -->
     <section id="content" class="row">
         <div class="col-2 sidebar">
             <ul>
@@ -184,21 +137,6 @@
             </div>
         </div>
     </section>
-
-    <footer class="row">
-        <div class="col-3">
-            <p>&copy; blablabla.com</p>
-        </div>
-        <ul class="col-6 list">
-            <li class="col-3">Home</li>
-            <li class="col-3">Berita</li>
-            <li class="col-3">Sport</li>
-            <li class="col-3">Games</li>
-        </ul>
-        <div class="col-3">
-            <P>text-transform</P>
-        </div>
-    </footer>
 </body>
 
 </html>
