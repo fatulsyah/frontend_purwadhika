@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .content .wrapper {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100px auto;
+            grid-column-gap: 35px;
+            grid-template-areas: "title title title";
+            margin-top: 38px;
+        }
+
+        .content .wrapper>h1 {
+            grid-area: title;
+        }
+
+        .sidebar {
+            height: 100%;
+            background: grey;
+        }
+
+        .sidebar>ul {
+            list-style: none;
+            margin: 0;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .sidebar>ul a {
+            color: #000000;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .sidebar>ul li:hover {
+            background: #000000;
+            cursor: pointer;
+        }
+
+        .sidebar>ul li:hover>a {
+            color: #ffffff;
+        }
+
+        /* Column Style */
+
+        #content {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 20% 80%;
+        }
+
+        ul.list {
+            list-style: none;
+            margin: 0;
+        }
+
+        ul.list>li {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        ul.list>li:hover {
+            background: #613131;
+        }
+
+        @media screen and (max-width: 500px) {
+            #content {
+                grid-template-columns: 1fr;
+            }
+            .content .wrapper {
+                grid-template-columns: 1fr;
+                grid-template-areas: unset;
+            }
+            .content .wrapper>h1 {
+                grid-area: unset;
+            }
+        }
+
+        button#menu {
+            position: absolute;
+            top: 11px;
+            left: 38px;
+            position: absolute;
+            padding: 20px;
+            border-radius: 5px;
+            background: blue;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1 class="iniclass">Halo jQuery</h1>
+    <h1 id="iniid">
+        <span>jQuery Itu Asik</span>
+    </h1>
+    <p>Yuk kuasai
+        <span>jQuery</span>!</p> -->
+    <section id="content" class="row">
+        <button id="menu" type="button">===</button>
+        <div class="col-2 sidebar">
+            <ul>
+                <li>
+                    <a href="#">Logo</a>
+                </li>
+                <li>
+                    <a href="#">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                <li>
+                    <a href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-10 content">
+            <div class="row wrapper">
+                <h1>Sidebar Navigation Layout</h1>
+
+                <div class="col-4">
+                    <h3>Kolom 1</h3>
+                    <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala
+                        macam informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat
+                        mp3. Karena algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti
+                        ini tidak bisa menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+                </div>
+                <div class="col-4">
+                    <h3>Kolom 2</h3>
+                    <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala
+                        macam informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat
+                        mp3. Karena algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti
+                        ini tidak bisa menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+                </div>
+                <div class="col-4">
+                    <h3>Kolom 3</h3>
+                    <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala
+                        macam informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat
+                        mp3. Karena algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti
+                        ini tidak bisa menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
