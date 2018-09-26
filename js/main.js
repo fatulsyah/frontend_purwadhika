@@ -1,6 +1,9 @@
 $(document).ready(function() {
   actionMenu();
   actionColumn();
+  getScrollTop();
+
+  submitFormRegister();
 
   $(".iniclass").css({
     color: "pink",
@@ -68,5 +71,35 @@ function actionColumn() {
   });
   $(".sidebar li:nth-of-type(4)").click(function() {
     $(".wrapper > div:nth-of-type(3)").toggle();
+  });
+}
+
+function getScrollTop() {
+  $(document).scroll(function() {
+    const scrollTop = $(this).scrollTop();
+    console.log(scrollTop);
+    if (scrollTop > 100) {
+      console.log("Scroll Top > 100");
+    }
+  });
+}
+
+function submitFormRegister() {
+  $("form.form-wrapper").submit(function(e) {
+    e.preventDefault();
+
+    const fullname = $('input[name="fullname"]').val();
+    const age = $('input[name="age"]').val();
+    const sex = $('select[name="sex"]').val();
+    let result = "";
+
+    result += "<p>Nama Lengkap: " + fullname + "</p>";
+    result += "<p>Usia: " + age + "</p>";
+    result += "<p>Jenis Kelamin: " + sex + "</p>";
+
+    // es6 format
+    // `<p>Nama Lengkap: ${fullname}</p>`
+
+    $("#submit-result").html(result);
   });
 }

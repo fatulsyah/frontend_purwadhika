@@ -103,6 +103,79 @@
             border: none;
             cursor: pointer;
         }
+
+        /* Form */
+
+        .form-container {
+            width: 33.3%;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333333;
+        }
+
+        .form-container>h1 {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .form-container input,
+        .form-container select {
+            display: block;
+            width: 100%;
+        }
+
+        .form-container input {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-container input:focus {
+            border: 1px solid #d71149;
+        }
+
+        .form-container p.note {
+            font-weight: 400;
+            font-size: 0.7em;
+            line-height: 1.4;
+            margin: 30px 0 20px;
+        }
+
+        .form-container p.note>a {
+            font-weight: 400;
+            color: #d71149;
+            text-decoration: none;
+        }
+
+        .form-container #login-note {
+            text-align: center;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #d71149;
+            border-color: #d71149;
+            color: #fff;
+            font-size: .8em;
+            border-radius: .2em;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #fff;
+            color: #333333;
+        }
+
+        #submit-result {
+            width: 33.3%;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333333;
+            font-size: .8em;
+        }
     </style>
 </head>
 
@@ -132,6 +205,31 @@
             </ul>
         </div>
         <div class="col-10 content">
+            <div class="form-container">
+                <h1>Daftar akun baru sekarang</h1>
+                <form class="form-wrapper">
+                    <input name="fullname" class="input-text" placeholder="Nama Lengkap" />
+                    <input name="age" class="input-text" placeholder="Usia" />
+                    <select name="sex">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Wanita">Wanita</option>
+                    </select>
+
+                    <p class="note">Dengan klik daftar, kamu telah menyetujui
+                        <a href="#">Aturan Penggunaan</a> dan
+                        <a href="#">Kebijakan Privasi</a>
+                    </p>
+                    <input type="submit" value="Daftar" />
+                </form>
+                <p id="login-note" class="note">Sudah punya akun?
+                    <a href="#">Silakan login</a>
+                </p>
+            </div>
+
+            <div id="submit-result"></div>
+
+
             <div class="row wrapper">
                 <h1>Sidebar Navigation Layout</h1>
 
@@ -151,6 +249,7 @@
                 </div>
                 <div class="col-4">
                     <h3>Kolom 3</h3>
+                    <input id="text" type="text" />
                     <p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala
                         macam informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat
                         mp3. Karena algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti
