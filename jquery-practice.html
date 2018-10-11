@@ -176,6 +176,15 @@
             color: #333333;
             font-size: .8em;
         }
+
+        .red {
+            color: red;
+            background: yellow;
+        }
+
+        .greyBackground {
+            background: #e4e4e4;
+        }
     </style>
 </head>
 
@@ -186,6 +195,7 @@
     </h1>
     <p>Yuk kuasai
         <span>jQuery</span>!</p> -->
+
     <section id="content" class="row">
         <button id="menu" type="button">===</button>
         <div class="col-2 sidebar">
@@ -206,7 +216,9 @@
         </div>
         <div class="col-10 content">
             <div class="form-container">
-                <h1>Daftar akun baru sekarang</h1>
+                <p class="para1">Ini paragraf 1</p>
+                <p class="para2">Ini paragraf 2</p>
+                <h1 id="form-title">Daftar akun baru sekarang</h1>
                 <form class="form-wrapper">
                     <input name="fullname" class="input-text" placeholder="Nama Lengkap" />
                     <input name="age" class="input-text" placeholder="Usia" />

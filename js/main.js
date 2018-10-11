@@ -5,6 +5,29 @@ $(document).ready(function() {
 
   submitFormRegister();
 
+  setTimeout(function() {
+    $("#form-title").removeClass("red");
+  }, 1000);
+
+  $("#form-title").click(function() {
+    $(this).toggleClass("red");
+    $(this).text("Judul Baru");
+    // const isRed = $(this).hasClass("red");
+
+    // if (isRed) $(this).removeClass("red");
+    // else $(this).addClass("red");
+  });
+
+  $(".sidebar").click(function() {
+    // $("ul").append('<li><a href="#">List 4</a></li>');
+    // $("ul").prepend('<li><a href="#">Main Menu</a></li>');
+    // $("div.sidebar li:nth-child(2)").before(
+    //   '<li><a href="#">List Middle</a></li>'
+    // );
+    $("ul").empty();
+    $("ul").detach();
+  });
+
   $(".iniclass").css({
     color: "pink",
     background: "black",
@@ -51,11 +74,13 @@ function actionMenu() {
         $("#content").css({
           "grid-template-columns": "100%"
         });
+        $("body").addClass("greyBackground");
         show = false;
       } else {
         $("#content").css({
           "grid-template-columns": "20% 80%"
         });
+        $("body").removeClass("greyBackground");
         show = true;
       }
     });
@@ -84,6 +109,15 @@ function getScrollTop() {
   });
 }
 
+const column = `<div class="col-4">
+<h3>Kolom Appended</h3>
+<input id="text" type="text" />
+<p>Mesin pencari internet, baik itu Google Search maupun Bing dan lainnya dirancang untuk memuat segala
+    macam informasi. Mulai dari berita (baik fakta maupun hoax) sampai ke kumpulan lagu-lagu berformat
+    mp3. Karena algoritma yang dipakai adalah berdasarkan kata kunci yang umum, mesin pencari seperti
+    ini tidak bisa menelusuri sebuah permintaan khusus. Seperti untuk mencari set data.</p>
+  </div>`;
+
 function submitFormRegister() {
   $("form.form-wrapper").submit(function(e) {
     e.preventDefault();
@@ -101,5 +135,9 @@ function submitFormRegister() {
     // `<p>Nama Lengkap: ${fullname}</p>`
 
     $("#submit-result").html(result);
+    $(".para1").appendTo(".para2");
+
+    $(".wrapper").append(column);
+    $(".wrapper > div:nth-of-type(2)").append(column);
   });
 }
