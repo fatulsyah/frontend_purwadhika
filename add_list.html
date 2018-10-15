@@ -1,0 +1,59 @@
+<style>
+    #box {
+        background: purple;
+        color: yellow;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        text-align: center;
+        padding: 20px
+    }
+</style>
+
+<body>
+    <input type="text" id="newItem">
+    <ol id="list"></ol>
+    <ol id="list-menu">
+        <li>Ayam Goreng</li>
+        <li>Ayam Rebus</li>
+        <li>Ayam Kari</li>
+    </ol>
+
+    <button id="slide">Slide Toggle</button>
+    <div id="box">X</div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#newItem').keyup(function (x) {
+                var code = x.which;
+
+                // if (code == 13) {
+                //     x.preventDefault();
+                //     $('ol').append('<li>' + x.target.value + '</li>');
+                // } else if (code == 38) {
+                //     $('ol#list').empty();
+                // }
+
+                switch (code) {
+                    case 13:
+                        x.preventDefault();
+                        $('ol#list').append('<li>' + $(this).val() + '</li>');
+                        break;
+                    case 38:
+                        $('ol#list li:nth-of-type(1)').remove();
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            $('#slide').click(function () {
+                $('#box').animate({
+                    left: 300,
+                    background: '#fff'
+                });
+            });
+        });
+    </script>
+</body>
