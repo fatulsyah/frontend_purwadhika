@@ -1,26 +1,75 @@
-<style>
-    #box {
-        background: purple;
-        color: yellow;
-        width: 80px;
-        height: 80px;
-        position: relative;
-        text-align: center;
-        padding: 20px
-    }
-</style>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Practice - Add List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        #box {
+            background: purple;
+            color: yellow;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            left: 0;
+        }
+
+        #box-wrapper {
+            width: 500px;
+            height: 300px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+
+        #button-wrapper {
+            padding: 10px 0;
+        }
+
+        .gaya {
+            text-align: center;
+            background: lightblue;
+            padding: 20px
+        }
+
+        .gaya:nth-last-child(odd) {
+            background: grey
+        }
+    </style>
+</head>
 
 <body>
-    <input type="text" id="newItem">
+    <!-- <input type="text" id="newItem">
     <ol id="list"></ol>
     <ol id="list-menu">
         <li>Ayam Goreng</li>
         <li>Ayam Rebus</li>
         <li>Ayam Kari</li>
-    </ol>
+    </ol> -->
+    <div class="container">
+        <div id="button-wrapper">
+            <button id="up" class="btn btn-success">UP</button>
+            <button id="right">RIGHT</button>
+            <button id="bottom">BOTTOM</button>
+            <button id="left">LEFT</button>
+        </div>
+        <div id="box-wrapper">
+            <div id="box">
+                <h1>X</h1>
+            </div>
+        </div>
 
-    <button id="slide">Slide Toggle</button>
-    <div id="box">X</div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Andi</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Budi</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Caca</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Deni</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Euis</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 gaya">Fafa</div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -48,12 +97,41 @@
                 }
             });
 
-            $('#slide').click(function () {
-                $('#box').animate({
-                    left: 300,
-                    background: '#fff'
+            // $('#up').click(function () {
+            //     $('#box').animate({
+            //         top: 0
+            //     });
+            // });
+            // $('#right').click(function () {
+            //     $('#box').animate({
+            //         left: 100
+            //     });
+            // });
+            // $('#bottom').click(function () {
+            //     $('#box').animate({
+            //         top: 100
+            //     });
+            // });
+            // $('#left').click(function () {
+            //     $('#box').animate({
+            //         left: 0
+            //     });
+            // });
+
+            function buttonCLick(direction, position, number) {
+                $('#' + direction).click(function () {
+                    $('#box').animate({
+                        [position]: number
+                    });
                 });
-            });
+            }
+
+            buttonCLick("up", "top", 0);
+            buttonCLick("right", "left", 100);
+            buttonCLick("bottom", "top", 100);
+            buttonCLick("left", "left", 0);
         });
     </script>
 </body>
+
+</html>
