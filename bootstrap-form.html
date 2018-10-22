@@ -9,6 +9,14 @@
         #form-title {
             margin: 2em 0;
         }
+
+        .custom-margin {
+            margin-top: 1em;
+        }
+
+        .custom-img-width {
+            width: 30%;
+        }
     </style>
 </head>
 
@@ -28,10 +36,15 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-12 custom-margin">
+                <img src="img/cash-register.svg" class="custom-img-width mx-auto d-block" />
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12 col-md-4 offset-md-4">
                 <h1 id="form-title" class="text-uppercase text-center lead">Daftar akun baru sekarang</h1>
 
-                <form class="needs-validation" novalidate>
+                <form>
                     <div class="form-group">
                         <input name="fullname" class="form-control" placeholder="Nama Lengkap" />
                     </div>
@@ -46,7 +59,7 @@
                         </select>
                     </div>
 
-                    <p class="small text-center">Dengan klik daftar, kamu telah menyetujui
+                    <p class="small text-center custom-text">Dengan klik daftar, kamu telah menyetujui
                         <a href="#">Aturan Penggunaan</a> dan
                         <a href="#">Kebijakan Privasi</a>
                     </p>
@@ -70,7 +83,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script>
         $(document).ready(function () {
             $("[data-toogle='dropdown']").dropdown()
